@@ -2,16 +2,20 @@ const subButton = document.getElementById("add");
 subButton.addEventListener("click", function () {
   const ul = document.getElementById("todolist");
   const myInput = document.getElementById("taskinput").value;
-  const li = document.createElement("li");
-  li.innerText = myInput;
-  let delButton = document.createElement("button");
-  delButton.innerText = "x";
-  delButton.addEventListener("click", function () {
-    ul.removeChild(li);
-  });
-  li.appendChild(delButton);
-  ul.appendChild(li);
-  document.getElementById("taskinput").value = "";
+  if (myInput === "") {
+    alert("scrivi qualcosa!");
+  } else {
+    const li = document.createElement("li");
+    li.innerText = myInput;
+    let delButton = document.createElement("button");
+    delButton.innerText = "x";
+    delButton.addEventListener("click", function () {
+      ul.removeChild(li);
+    });
+    li.appendChild(delButton);
+    ul.appendChild(li);
+    document.getElementById("taskinput").value = "";
+  }
 });
 
 // let listItem = document.querySelectorAll("li");
